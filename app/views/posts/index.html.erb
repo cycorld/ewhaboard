@@ -10,7 +10,7 @@
     <% @posts.each do |post| %>
         <li>
             <h3><%= post.title %></h3>
-            <p><%= post.content %></p>
+            <p><%= post.content.html_safe %></p>
             <h4>코멘트</h4>
             <%= form_tag comments_path do %>
                 <%= hidden_field_tag :post_id, post.id %>
