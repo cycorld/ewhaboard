@@ -2,7 +2,7 @@
 <h2>포스팅하기</h2>
 <%= form_tag posts_path do %>
     <%= text_field_tag :title, nil, placeholder: '제목' %><br>
-    <%= text_area_tag :content, nil, placeholder: '내용' %><br>
+    <%= cktext_area nil, :content, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' } %>
     <%= submit_tag '작성' %>
 <% end %>
 <h2>게시글</h2>
