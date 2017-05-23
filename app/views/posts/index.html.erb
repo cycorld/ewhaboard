@@ -11,6 +11,17 @@
         <li>
             <h3><%= post.title %></h3>
             <p><%= post.content %></p>
+            <h4>코멘트</h4>
+            <%= form_tag comments_path do %>
+                <%= hidden_field_tag :post_id, post.id %>
+                <%= text_area_tag :content, nil, placeholder: '내용' %>
+                <%= submit_tag '작성' %>
+            <% end %>
+            <ul>
+                <% post.comments.each do |comment| %>
+                    <li><%= comment.content %></li>
+                <% end %>
+            </ul>
         </li>
     <% end %>
 </ul>
