@@ -1,2 +1,7 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h2>포스팅하기</h2>
+<%= form_tag posts_path do %>
+    <%= collection_select(nil, :board_id, Board.all, :id, :title) %><br>
+    <%= text_field_tag :title, nil, placeholder: '제목' %><br>
+    <%= cktext_area nil, :content, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' } %>
+    <%= submit_tag '작성' %>
+<% end %>
