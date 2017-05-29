@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :edit]
+  
   def index
     @posts = Post.order(id: :desc).all
   end
