@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'boards/index'
+
+  get 'boards/show'
+
   mount RailsAdmin::Engine => '/boss', as: 'rails_admin'
   devise_for :users
   mount Ckeditor::Engine => '/ckeditor'
