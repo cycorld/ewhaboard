@@ -9,6 +9,8 @@
   </head>
 
   <body>
+    <h1><%= link_to '홈', root_path %></h1>
+    <li><%= link_to '새글쓰기', new_post_path %></li>
     <% Board.all.each do |board| %>
       <li><%= link_to board.title, board_path(board) %></li>
     <% end %>
