@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     post.title = params[:title]
     post.content = params[:content]
     post.user_id = current_user.id
+    post.board_id = params[:board_id]
     post.save
     redirect_to root_path
   end
