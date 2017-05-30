@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ul {
+    border: solid 1px black;
+}
+li {
+    border-bottom: dotted 1px gray;
+}
