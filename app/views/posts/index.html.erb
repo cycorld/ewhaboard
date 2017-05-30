@@ -5,8 +5,8 @@
     <% @posts.each do |post| %>
         <li>
             <h3><%= post.title %></h3>
-            <h4>작성자: <%= post.user.name %></h4>
-            <p><%= post.content.html_safe %></p>
+            <h4>작성자: <%= post.try(:user).try(:name) %></h4>
+            <p><%= post.try(:content).try(:html_safe) %></p>
             <h4>코멘트</h4>
             <%= form_tag comments_path do %>
                 <%= hidden_field_tag :post_id, post.id %>
@@ -15,7 +15,7 @@
             <% end %>
             <ul>
                 <% post.comments.each do |comment| %>
-                    <li><%= comment.user.name %> : <%= comment.content %></li>
+                    <li><%= comment.try(:user).try(:name) %> : <%= comment.content %></li>
                 <% end %>
             </ul>
         </li>
