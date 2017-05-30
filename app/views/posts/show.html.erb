@@ -1,2 +1,15 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h2>게시글</h2>
+<h3><%= @post.title %></h3>
+<h4>작성자: <%= @post.try(:user).try(:name) %></h4>
+<p><%= @post.try(:content).try(:html_safe) %></p>
+<h4>코멘트</h4>
+<%= form_tag comments_path do %>
+    <%= hidden_field_tag :post_id, @post.id %>
+    <%= text_area_tag :content, nil, placeholder: '내용' %>
+    <%= submit_tag '작성' %>
+<% end %>
+<ul>
+    <% @post.comments.each do |comment| %>
+        <li><%= comment.try(:user).try(:name) %> : <%= comment.content %></li>
+    <% end %>
+</ul>
