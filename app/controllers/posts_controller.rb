@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     post.user_id = current_user.id
     post.board_id = params[:board_id]
     post.save
-    redirect_to root_path
+    redirect_to post_path(post)
   end
 
   def show
