@@ -7,6 +7,6 @@ class CommentsController < ApplicationController
         comment.user_id = current_user.id
         comment.content = params[:content]
         comment.save
-        redirect_to root_path
+        redirect_to post_path(comment.post)
     end
 end
