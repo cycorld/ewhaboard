@@ -6,13 +6,13 @@ class PostsController < ApplicationController
   end
   
   def create
-    post = Post.new
-    post.title = params[:title]
-    post.content = params[:content]
-    post.user_id = current_user.id
-    post.board_id = params[:board_id]
-    post.save
-    redirect_to post_path(post)
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      render :new
+    end
   end
 
   def show
@@ -20,8 +20,15 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def edit
+  end
+  
+  private
+  
+  def post_params
+    params.require(:post).permit([:title, :board_id, :content])
   end
 end
