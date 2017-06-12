@@ -1,7 +1,7 @@
 <h2>포스팅하기</h2>
-<%= form_tag posts_path do %>
-    <%= collection_select(nil, :board_id, Board.all, :id, :title) %><br>
-    <%= text_field_tag :title, nil, placeholder: '제목' %><br>
-    <%= cktext_area nil, :content, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' } %>
-    <%= submit_tag '작성' %>
+<%= simple_form_for @post do |f| %>
+    <%= f.input :board_id, collection: Board.all, prompt: '게시판을 선택하세요' %>
+    <%= f.input :title %>
+    <%= f.cktext_area :content, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' } %>
+    <%= f.button :submit %>
 <% end %>
