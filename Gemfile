@@ -13,6 +13,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
 gem 'rails_admin', '~> 1.1.1'
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use sqlite3 as the database for Active Record
 
 # Use Puma as the app server
