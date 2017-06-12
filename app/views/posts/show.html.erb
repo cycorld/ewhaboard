@@ -1,15 +1,32 @@
-<h2>게시글</h2>
-<h3><%= @post.title %></h3>
-<h4>작성자: <%= @post.try(:user).try(:name) %></h4>
-<p><%= @post.try(:content).try(:html_safe) %></p>
-<h4>코멘트</h4>
-<%= form_tag comments_path do %>
-    <%= hidden_field_tag :post_id, @post.id %>
-    <%= text_area_tag :content, nil, placeholder: '내용' %>
-    <%= submit_tag '작성' %>
-<% end %>
-<ul>
-    <% @post.comments.each do |comment| %>
-        <li><%= comment.try(:user).try(:name) %> : <%= comment.content %></li>
-    <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @post.title %></h3>
+        <small><%= @post.user.try(:name) %> <%= @post.created_at %></small>
+      </div>
+      <div class="panel-body">
+        <%= @post.try(:content).try(:html_safe) %>
+      </div>
+
+      <table class="table">
+        <% @post.comments.each do |comment| %>
+          <tr>
+            <td><%= comment.try(:user).try(:name) %></td>
+            <td><%= comment.content %></td>
+          </tr>
+        <% end %>
+        <%= form_tag comments_path do %>
+        <%= hidden_field_tag :post_id, @post.id %>
+        <tr>
+          <td></td>
+          <td>
+            <%= text_field_tag :content, nil, placeholder: '내용' %>
+            <%= submit_tag '작성' %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
