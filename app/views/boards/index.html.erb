@@ -1,14 +1,20 @@
-<h1>이화보드 홈페이지</h1>
-<ul>
-<% @boards.each do |board| %>
-    <li>
-        <h3><%= board.title %> <%= link_to '더보기', board_path(board) %></h3>
-        <h4>최근 게시물</h4>
-        <ol>
-            <% board.posts.last(5).each do |post| %>
-                <li><%= link_to post.title, post_path(post) %></li>
-            <% end %>
-        </ol>
-    </li>
-<% end %>
-</ul>
+<div class="row">
+  <% @boards.each do |board| %>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= link_to board.title, board_path(board) %></h3>
+        </div>
+        <table class="table">
+          <% board.posts.last(5).each do |post| %>
+          <tr>
+            <td><%= post.user.name %></td>
+            <td><%= link_to post.title, post_path(post) %></td>
+            <td><%= post.created_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  <% end %>
+</div>
