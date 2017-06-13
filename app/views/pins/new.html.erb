@@ -1,2 +1,9 @@
-<h1>Pins#new</h1>
-<p>Find me in app/views/pins/new.html.erb</p>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <%= simple_form_for @pin do |f| %>
+            <%= f.input :title %>
+            <%= f.gmap_coordinate_picker :api_key => ENV['GMAP_API_KEY'], :lat_column => 'lat', :lng_column => 'lng' , :zoom_level => 16, :default_coordinates => [37.562079, 126.946829], autocomplete: { enable: true, class: 'form-control' }  %>
+            <%= f.button :submit %>
+        <% end %>
+    </div>
+</div>

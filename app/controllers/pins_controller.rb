@@ -3,5 +3,6 @@ class PinsController < ApplicationController
   end
 
   def new
+    @pin = Pin.new
   end
 end
