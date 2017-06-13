@@ -15,6 +15,7 @@ gem 'devise'
 gem 'rails_admin', '~> 1.1.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
+gem 'gmap_coordinates_picker'
 # Use sqlite3 as the database for Active Record
 
 # Use Puma as the app server
