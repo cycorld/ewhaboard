@@ -29,6 +29,8 @@
             <% Board.all.each do |board| %>
               <li><%= link_to board.title, board_path(board) %></li>
             <% end %>
+            <li><%= link_to '지도보기', pins_path %></li>
+            <li><%= link_to '핀꼽기', new_pin_path %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
