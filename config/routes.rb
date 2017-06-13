@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'pins/index'
-
-  get 'pins/new'
-
   mount RailsAdmin::Engine => '/boss', as: 'rails_admin'
   devise_for :users
   mount Ckeditor::Engine => '/ckeditor'
@@ -10,6 +6,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments
   resources :boards
+  resources :pins
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
