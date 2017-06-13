@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529231347) do
+ActiveRecord::Schema.define(version: 20170613025032) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "title"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20170529231347) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "pins", force: :cascade do |t|
+    t.string   "title"
+    t.decimal  "lat",        precision: 10, scale: 6
+    t.decimal  "lng",        precision: 10, scale: 6
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "posts", force: :cascade do |t|
