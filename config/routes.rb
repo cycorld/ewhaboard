@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'pins/index'
+
+  get 'pins/new'
+
   mount RailsAdmin::Engine => '/boss', as: 'rails_admin'
   devise_for :users
   mount Ckeditor::Engine => '/ckeditor'
