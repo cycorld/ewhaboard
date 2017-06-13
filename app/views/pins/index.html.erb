@@ -1,8 +1,22 @@
-<h1>Pins#index</h1>
-<% @pins.each do |pin| %>
-<li>
-    <%= pin.title %>
-    <%= pin.lat %>
-    <%= pin.lng %>
-</li>
-<% end %>
+<div class="row">
+    <div class="col-md-12">
+        <div id="map" style="width: 100%; height: 400px;"></div>
+    </div>
+</div>
+<script>
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: <%=@pins.first.lat.to_f%>, lng: <%=@pins.first.lng.to_f%>},
+      zoom: 16
+    });
+    <% @pins.each do |pin| %>
+        var marker = new google.maps.Marker({
+          position: {lat: <%=pin.lat.to_f%>, lng: <%=pin.lng.to_f%>},
+          map: map,
+          title: "<%=pin.title%>"
+        });
+    <% end %>
+  }
+</script>
+<script src="//maps.googleapis.com/maps/api/js?key=<%=ENV['GMAP_API_KEY']%>&callback=initMap" async defer></script>
