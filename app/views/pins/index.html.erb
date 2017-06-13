@@ -1,2 +1,8 @@
 <h1>Pins#index</h1>
-<p>Find me in app/views/pins/index.html.erb</p>
+<% @pins.each do |pin| %>
+<li>
+    <%= pin.title %>
+    <%= pin.lat %>
+    <%= pin.lng %>
+</li>
+<% end %>
