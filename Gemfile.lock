@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/cycorld/gmap_coordinates_picker.git
+  revision: 5c96a45657ea7629d91ccb192c4cb64a0d684d71
+  specs:
+    gmap_coordinates_picker (0.0.7)
+      rails (>= 3.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -79,8 +86,6 @@ GEM
       railties (>= 3.2, < 5.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    gmap_coordinates_picker (0.1.0)
-      rails (>= 3.1.0)
     haml (4.0.7)
       tilt
     i18n (0.8.1)
@@ -222,7 +227,7 @@ DEPENDENCIES
   ckeditor
   coffee-rails (~> 4.2)
   devise
-  gmap_coordinates_picker
+  gmap_coordinates_picker!
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
